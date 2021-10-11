@@ -61,13 +61,11 @@ def build(response):
       if clean_id is 1:
         cleaner.append(id)
       i+=1
-    #console(content)
-    #for ct in ctrl_id:
-      #console(ct)
-      #content=content.replace("ctrl_id='"+ct+"'","")
-    #for id in cleaner:
-      #content=content.replace("id='"+id+"'","")
-    #content=re.sub("ctrl_id=.*\'","",content)
+    for ct in ctrl_id:
+      console(ct)
+     content=content.replace("ctrl_id='"+ct+"'","")
+    for id in cleaner:
+      content=content.replace("id='"+id+"'","")
     print(content)
   except Exception as e:
     console("Errore nel while di costruzione "+e.args[0])
