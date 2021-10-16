@@ -1,11 +1,10 @@
 import mariadb
 import os
+
 mdb_user=""
 mdb_password=""
 mdb_ip=""
 mdb_database=""
-
-
 
 voidtag=['area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr']
 
@@ -46,7 +45,7 @@ def build(response):
   try:
     data,content,i,cleaner,ctrl_id=response,'',0,[],[]
     while i<len(data):
-      parent_id,parent_tag,tag,id,cls,att_typ,att_val,text,clean_id=data[i].parent,data[i].parent_tag,data[i].tag,data[i].id,data[i].cls,data[i].att_typ,data[i].att_val,data[i].text,data[i].clean_id
+      parent_id,parent_tag,tag,id,cls,att_typ,att_val,text,clean_id=data[i].parent.replace(" ",""),data[i].parent_tag.replace(" ",""),data[i].tag,data[i].id,data[i].cls,data[i].att_typ,data[i].att_val,data[i].text,data[i].clean_id
       ctrl_id.append(id)
       # create tag
       el=newEl(tag,id,cls,att_typ,att_val,text)
@@ -61,9 +60,9 @@ def build(response):
       if clean_id is 1:
         cleaner.append(id)
       i+=1
+      console(content)
     for ct in ctrl_id:
-      console(ct)
-     content=content.replace("ctrl_id='"+ct+"'","")
+      content=content.replace("ctrl_id='"+ct+"'","")
     for id in cleaner:
       content=content.replace("id='"+id+"'","")
     print(content)
@@ -72,14 +71,9 @@ def build(response):
     pass  
 
 def getParent(content,tag,id):
-  
-  tempco0=content.split("</"+tag+" ctrl_id='"+id+"'>",maxsplit=1)
-  if len(tempco0)>1:
-    splitted=[tempco0[0],"</"+tag+" ctrl_id='"+id+"'>"+tempco0[1]]
-    return splitted
-  else:
-    console(tag)
-    console(tempco0[0])
+  tempco0=content.split("</"+tag+" ctrl_id='"+id+"'>")
+  splitted=[tempco0[0],"</"+tag+" ctrl_id='"+id+"'>"+tempco0[1]]
+  return splitted
 
 def newEl(tag,id,cls,att_typ,att_val,text):
   opentag="<"+tag
