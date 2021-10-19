@@ -48,7 +48,9 @@ att_val
 text 
   text*
 
-cls, att_typ and att_val can be omitted, but you must leave them NULL (it will not throw an exception, but you'll have a blank class attribute, for example [class='']) or some whitespace as textContent (text only obv).
+cls, att_typ and att_val:
+  If you need more than one class and/or attribute, you have to separate them using a comma. Example cls=these,are,four,different classes att_typ=rel,href att_val=rel1,href_val
+  Those can be omitted, but you must leave them NULL (it will not throw an exception, but you'll have a blank class attribute, for example [class='']) or some whitespace as textContent (text only obv).
 
 clean_id 
   tinyint(1)
