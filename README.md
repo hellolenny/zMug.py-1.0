@@ -11,7 +11,7 @@ zMug.py takes its name from the "Indicator", **"HQIBPEXEZMUG"**, or ZeeMug/ZedMu
 
 ## Are there any dependencies for zMug?
 
-Yeah, you must install ![MariaDB on your machine](https://pypi.org/project/mariadb/).
+Yeah, you must install [MariaDB on your machine](https://pypi.org/project/mariadb/).
 
 ## How does zMug.py v1.0 work?
 
@@ -80,7 +80,7 @@ start() will call header(), and getURL(), and then it will call the MariaDB and 
 
 Sure, just check my homepage (WIP as usual):
 
-![https://www.leonardocristiano.com/](https://www.leonardocristiano.com/)
+[https://www.leonardocristiano.com/](https://www.leonardocristiano.com/)
 
 ## Bah, this is riddled with bugs!
 
